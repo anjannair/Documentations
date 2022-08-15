@@ -8,7 +8,7 @@ image_url: https://marvel-b1-cdn.bc0a.com/f00000000216283/www.fortinet.com/conte
 Proxies, or proxy servers, are computer programs that act as an **intermediary** between the **user** and the **destination server**. One often uses a proxy server to modify the way a user accesses a website, to redirect the user to a different website and so on.
 
 ## In This Tutorial
-We will be using proxy.py to setup a proxy server to **cache** and serve content from the internet. 
+We will be using `proxy.py` to setup a proxy server to **cache** and serve content from the internet. 
 
 >Caching is the process of storing the content of a website in a local cache to speed up the loading of the website.
 
@@ -41,13 +41,21 @@ docker run -d --restart unless-stopped -p 8899:8899 abhinavsingh/proxy.py:latest
 - `--plugins proxy.plugin.CacheResponsesPlugin` - The plugin to cache responses as mentioned in the documentation [here](https://github.com/abhinavsingh/proxy.py#cacheresponsesplugin).
 - `--hostname 0.0.0.0` - Sets the hostname to 0.0.0.0, which means that the proxy server will be accessible from any device on the network. This is important.
 
-Your proxy is now running on port 8899.
+💡If you want to check out more about Docker commands, you can check out my article [here](https://blog.anjann.dev/docker).
+
+Your proxy is now running on port **8899**.
 
 That's about it! You can set your device (recommended) or browser to use the proxy.
 
-## Setting It up
+## Setting It Up
 
 Set your proxy IP to the IP address of the **device the docker container is running on**.
+
+If you are running the container on a Mac or Linux system use `ifconfig` to get the IP address of your system.
+
+If its Windows then `ipconfig` will print the IP address.
+
+⚠️ Most of the times the DHCP server on your router should assign your device a static internal IP address, however if it doesn't, change your device settings from DHCP assignment to static assignment.
 
 ### Linux
 If you have a Linux system you will be finding your proxy settings in **Network settings**.
